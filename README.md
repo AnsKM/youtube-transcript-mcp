@@ -252,3 +252,7 @@ For issues or questions:
 - Built with [FastMCP](https://github.com/jlowin/fastmcp)
 - Uses [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api)
 - Deployed on [Vercel](https://vercel.com)
+
+## Deployment Status
+
+[![Deployed on Vercel](https://vercel.com/button)](https://youtube-transcript-mcp.vercel.app)
