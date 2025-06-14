@@ -1,29 +1,15 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "api/mcp.py",
-      "use": "@vercel/python",
-      "config": {
-        "maxLambdaSize": "10mb"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/mcp",
-      "dest": "api/mcp.py",
-      "methods": ["POST", "OPTIONS"]
+      "source": "/mcp",
+      "destination": "/api/mcp"
     },
     {
-      "src": "/",
-      "dest": "api/mcp.py",
-      "methods": ["GET"]
+      "source": "/",
+      "destination": "/api/mcp"
     }
   ],
-  "env": {
-    "PYTHONUNBUFFERED": "1"
-  },
   "functions": {
     "api/mcp.py": {
       "maxDuration": 60,
