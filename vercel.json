@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/mcp.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "10mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/mcp",
+      "dest": "api/mcp.py",
+      "methods": ["POST", "OPTIONS"]
+    },
+    {
+      "src": "/",
+      "dest": "api/mcp.py",
+      "methods": ["GET"]
+    }
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "1"
+  },
+  "functions": {
+    "api/mcp.py": {
+      "maxDuration": 60,
+      "runtime": "python3.12"
+    }
+  },
+  "headers": [
+    {
+      "source": "/mcp",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization"
+        }
+      ]
+    }
+  ]
+}
